@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   def index
     @chatroom = Chatroom.new
@@ -13,7 +14,6 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
-    @chatroom = Chatroom.find_by(slug: params[:slug])
   end
 
   def create
@@ -33,17 +33,28 @@ class ChatroomsController < ApplicationController
   end
 
   def update
-    chatroom = Chatroom.find_by(slug: params[:slug])
-    chatroom.update(chatroom_params)
-    redirect_to chatroom
+    @chatroom.update(chatroom_params)
+    redirect_to @chatroom
   end
 
   def show
-    @chatroom = Chatroom.find_by(slug: params[:slug])
     @message = Message.new
   end
 
+  def destroy
+    @chatroom.destroy
+    respond_to do |format|
+      flash[:notice] = {error: ["#{I18n.t 'error.destroy'}"]}
+      format.html { redirect_to @chatroom}
+      format.json { head :no_content }
+    end
+  end
+
   private
+    
+    def set_chatroom
+      @chatroom = Chatroom.find_by(slug: params[:slug])
+    end
 
     def chatroom_params
       params.require(:chatroom).permit(:topic)

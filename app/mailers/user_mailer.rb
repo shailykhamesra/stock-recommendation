@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: Rails.application.secrets.GMAIL_USERNAME
 
   def notification_email(user, content)
     @users = User.all

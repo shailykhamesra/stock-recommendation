@@ -1,4 +1,5 @@
 en:
   error:
     exists: "a chatroom with this company name already exists"
-    username: dosen't exists
+    username: "dosen't exists"
+    destroy: "company stock recommendation has been deleted"

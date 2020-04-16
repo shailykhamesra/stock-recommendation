@@ -1,5 +1,9 @@
 <div class="row col-md-8 col-md-offset-2">
   <h1><%= @chatroom.topic %></h1>
+  <%if @chatroom %>
+    <%= link_to 'Edit', edit_chatroom_path(@chatroom.slug) %> ||
+    <%= link_to 'Destroy', @chatroom, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%end%>
 
 <div class="panel panel-default">
   <% if @chatroom.messages.any? %>
