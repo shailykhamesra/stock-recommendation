@@ -1,0 +1,10 @@
+<div class="chatroom-form">
+  <%= form_for chatroom, remote: true do |f| %>
+    <div class="input-group">
+      <span class="input-group-addon">Company Name:</span>
+      <%= f.text_field :topic, class: "form-control"%>
+    </div>
+    <br>
+    <%= f.submit class: "btn btn-primary", id: "create-stock-recommendation" %>
+  <% end %>
+</div>

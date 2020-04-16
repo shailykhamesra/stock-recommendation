@@ -1,0 +1,18 @@
+<div class="row col-md-8 col-md-offset-2" id="chatroom-title">
+  <h1>Stock Buy/Sell</h1>
+</div>
+
+<div class="row col-md-8 col-md-offset-2" id="chatrooms">
+  <%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+  <div id="chatroom-errors">
+    
+  </div>
+    <ul id="chatroom-index"> 
+  <p>Stock rooms</p>
+  <% if @chatrooms.any? %>
+      <%= render @chatrooms%>
+  <%else %>
+    </ul>
+    <p>Be the first one to make stock recommendation!</p>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+en:
+  error:
+    exists: "a chatroom with this company name already exists"
+    username: dosen't exists
