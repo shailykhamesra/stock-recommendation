@@ -1,4 +1,5 @@
 *Stock recommendation*
+
 Stock recommendation apllication helps user get real time update of every company stock recommendation and further helps user chat with the updater.
 It supports multi user updates through action cable.
 It informs user regarding updates via mailers.
